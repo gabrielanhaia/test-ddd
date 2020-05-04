@@ -4,21 +4,40 @@
 namespace App\Task\Domain\Event;
 
 use Docler\Domain\Core\Event\DomainEvent;
+use Docler\Domain\Task\Entity\UserIdentity;
 
-class TaskCompleted implements DomainEvent
+/**
+ * Class TaskCompleted
+ *
+ * @package App\Task\Domain\Event
+ *
+ * @author Gabriel Annhaia <anhaia.gabriel@gmail.com>
+ */
+class TaskCompleted extends DomainEvent
 {
+    /** @var UserIdentity $userId */
     private $userId;
-    private $userEmail;
-    private $occurredOn;
 
-    public function __construct(int $userId, $userEmail)
+    /** @var string $userEmail */
+    private $userEmail;
+
+    /**
+     * TaskCompleted constructor.
+     * @param UserIdentity $userIdentity
+     * @param string $userEmail
+     * @throws \Exception
+     *
+     *
+     * TODO: Task como parametro.
+     */
+    public function __construct(UserIdentity $userIdentity, string $userEmail)
     {
-        $this->userId = $userId;
+        $this->userId = $userIdentity;
         $this->userEmail = $userEmail;
         $this->occurredOn = new \DateTimeImmutable();
     }
 
-    public function userId(): int
+    public function userId(): UserIdentity
     {
         return $this->userId;
     }
@@ -28,8 +47,17 @@ class TaskCompleted implements DomainEvent
         return $this->userEmail;
     }
 
-    public function occurredOn(): \DateTimeImmutable
+    public function occurredOn()
     {
-        return $this->occurredOn;
+        // TODO: Implement occurredOn() method.
+    }
+
+    /**
+     * @return mixed|void
+     */
+    public function publish()
+    {
+
+        // Faz algo....
     }
 }

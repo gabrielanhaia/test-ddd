@@ -2,10 +2,24 @@
 
 namespace Docler\Domain\Core\Event;
 
-interface DomainEvent
+/**
+ * Class DomainEvent
+ * @package Docler\Domain\Core\Event
+ *
+ * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
+ */
+abstract class DomainEvent
 {
+    /** @var \DateTimeImmutable $occurredOn */
+    protected $occurredOn;
+
     /**
      * @return \DateTimeImmutable
      */
-    public function occurredOn();
+    abstract public function occurredOn();
+
+    /**
+     * @return mixed
+     */
+    abstract public function publish();
 }
