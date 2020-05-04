@@ -3,11 +3,9 @@
 
 namespace Docler\Application\Controller;
 
+use Docler\Application\Service\CompleteTaskService;
 use Docler\Application\Service\GetTaskService;
-use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Domain\Task\Entity\UserIdentity;
-use Docler\Domain\Task\Service\TaskService;
-use Docler\Domain\Task\Service\UserService;
+use Docler\Application\Service\Task;
 
 /**
  * Class TController
@@ -15,19 +13,6 @@ use Docler\Domain\Task\Service\UserService;
  */
 class TController
 {
-    /** @var TaskService $taskService */
-    private $taskService;
-    /**
-     * @var UserService
-     */
-    private $userService;
-
-    public function __construct(TaskService $taskService, UserService $userService)
-    {
-        $this->taskService = $taskService;
-        $this->userService = $userService;
-    }
-
     // TASK CONTROLLER
 
     public function getTask(int $taskId, GetTaskService $getTaskService)
@@ -35,6 +20,13 @@ class TController
         $task = $getTaskService->execute($taskId);
 
         dd($task);
+    }
+
+    public function completeTask(int $taskId, CompleteTaskService $completeTaskService)
+    {
+        $task = $completeTaskService->execute($taskId);
+
+        dd(['SUCCESS' => $task]);
     }
 
 //    public function listTasks()
