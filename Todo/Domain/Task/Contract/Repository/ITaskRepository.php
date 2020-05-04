@@ -3,21 +3,57 @@
 
 namespace Docler\Domain\Task\Contract\Repository;
 
+use Docler\Domain\{Task\Contract\Factory\ITaskFactory, Task\Entity\Task as TaskEntity, Task\Entity\TaskIdentity};
 
-use Docler\Domain\Task\Contract\Factory\ITaskFactory;
-use Docler\Domain\Task\Entity\Task;
-use Docler\Domain\Task\Entity\TaskIdentity;
-
+/**
+ * Class ITaskRepository
+ * @package Docler\Domain\Task\Contract\Repository
+ *
+ * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
+ */
 abstract class ITaskRepository
 {
+    /** @var ITaskFactory $taskFactory */
     protected $taskFactory;
 
+    /**
+     * ITaskRepository constructor.
+     * @param ITaskFactory $taskFactory
+     */
     public function __construct(ITaskFactory $taskFactory)
     {
         $this->taskFactory = $taskFactory;
     }
 
-    abstract public function updateStatusTask(Task $task): Task;
+    /**
+     * Update a status task.
+     *
+     * @param TaskEntity $task Task to be updated.
+     * @return TaskEntity
+     */
+    abstract public function updateStatusTask(TaskEntity $task): TaskEntity;
 
-    abstract public function getTask(TaskIdentity $identity): Task;
+    /**
+     * Find a task by id.
+     *
+     * @param TaskIdentity $taskIdentity
+     * @return TaskEntity
+     */
+    abstract public function getTask(TaskIdentity $taskIdentity): TaskEntity;
+
+    /**
+     * Method responsible for creating/updating a task.
+     *
+     * @param TaskEntity $taskToBeStored
+     * @return TaskEntity
+     */
+    abstract public function storeTask(TaskEntity $taskToBeStored): TaskEntity;
+
+    /**
+     * Method responsible for deleting a task.
+     *
+     * @param TaskIdentity $taskIdentity Task identity to be deleted.
+     * @return mixed
+     */
+    abstract public function deleteTask(TaskIdentity $taskIdentity);
 }
