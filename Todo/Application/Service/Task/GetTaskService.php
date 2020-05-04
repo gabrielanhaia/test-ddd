@@ -1,26 +1,18 @@
 <?php
 
-namespace Docler\Application\Service;
+namespace Docler\Application\Service\Task;
 
 use Docler\Domain\Task\Contract\Repository\ITaskRepository;
 use Docler\Domain\Task\Entity\TaskIdentity;
 
 /**
  * Class GetTask
- * @package Docler\Application\Service
+ * @package Docler\Application\Service\Task
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
-class GetTaskService
+class GetTaskService extends TaskService
 {
-    /** @var ITaskRepository $taskRepository */
-    private $taskRepository;
-
-    public function __construct(ITaskRepository $taskRepository)
-    {
-        $this->taskRepository = $taskRepository;
-    }
-
     /**
      * @param int $taskId
      * @return Task

@@ -6,12 +6,12 @@ namespace Docler\Application\Service\Task;
 use Docler\Domain\Task\Entity\TaskIdentity;
 
 /**
- * Class CompleteTask
+ * Class IncompleteTaskService
  * @package Docler\Application\Service\Task
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
-class CompleteTaskService extends TaskService
+class IncompleteTaskService extends TaskService
 {
     /**
      * Execute de complete task service.
@@ -31,7 +31,7 @@ class CompleteTaskService extends TaskService
             throw new \Exception('Task not found.');
         }
 
-        $taskEntity->complete();
+        $taskEntity->incomplete();
 
         $taskEntity = $this->taskRepository->updateStatusTask($taskEntity);
 

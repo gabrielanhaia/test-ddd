@@ -9,6 +9,7 @@
   */
  class TaskEloquentServiceProvider extends ServiceProvider
 {
+    /** @var string DS */
     const DS = DIRECTORY_SEPARATOR;
 
      /**

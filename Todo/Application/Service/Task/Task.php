@@ -1,40 +1,46 @@
 <?php
 
 
-namespace Docler\Application\Service;
+namespace Docler\Application\Service\Task;
 
 /**
  * Class Task
- * @package Docler\Application\Service
+ * @package Docler\Application\Service\Task
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
 class Task
 {
-    /**
-     * @var int
-     */
+    /** @var int $identity */
     private $identity;
-    /**
-     * @var bool
-     */
+
+    /** @var bool $isCompleted */
     private $isCompleted;
-    /**
-     * @var string
-     */
+
+    /** @var string $name */
     private $name;
 
-    public function __construct(int $identity, bool $isCompleted, string $name)
+    /** @var int $userIdentity */
+    private $userIdentity;
+
+
+    public function __construct(
+        int $identity = null,
+        bool $isCompleted = null,
+        string $name = null,
+        int $userIdentity = null
+    )
     {
         $this->identity = $identity;
         $this->isCompleted = $isCompleted;
         $this->name = $name;
+        $this->userIdentity = $userIdentity;
     }
 
     /**
      * @return int
      */
-    public function getIdentity(): int
+    public function getIdentity(): ?int
     {
         return $this->identity;
     }
@@ -52,7 +58,7 @@ class Task
     /**
      * @return bool
      */
-    public function isCompleted(): bool
+    public function isCompleted(): ?bool
     {
         return $this->isCompleted;
     }
@@ -70,7 +76,7 @@ class Task
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -85,5 +91,21 @@ class Task
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getUserIdentity(): int
+    {
+        return $this->userIdentity;
+    }
 
+    /**
+     * @param int $userIdentity
+     * @return Task
+     */
+    public function setUserIdentity(int $userIdentity): Task
+    {
+        $this->userIdentity = $userIdentity;
+        return $this;
+    }
 }

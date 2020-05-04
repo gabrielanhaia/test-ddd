@@ -1,29 +1,25 @@
 <?php
 
-
 namespace Docler\Domain\Task\Contract\Repository;
 
 use Docler\Domain\Task\Contract\Factory\ITaskFactory;
 use Docler\Domain\Task\Contract\Factory\IUserFactory;
 use Docler\Domain\Task\Entity\User;
-use Docler\Domain\Task\Entity\UserIdentity;
 
 /**
- * Class IUserRepository
+ * Class IUserTaskRepository
  * @package Docler\Domain\Task\Contract\Repository
- *
- * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
-abstract class IUserRepository
+abstract class IUserTaskRepository
 {
-    /** @var IUserFactory $userFactory Factory of user entities. */
+    /** @var IUserFactory $userFactory User factory. */
     protected $userFactory;
 
-    /** @var ITaskFactory $taskFactory Factory of tasks. */
+    /** @var ITaskFactory $taskFactory Task entity factory. */
     protected $taskFactory;
 
     /**
-     * IUserRepository constructor.
+     * IUserTaskRepository constructor.
      *
      * @param IUserFactory $userFactory
      * @param ITaskFactory $taskFactory
@@ -35,10 +31,7 @@ abstract class IUserRepository
     }
 
     /**
-     * Get a list of tasks related to a user.
-     *
-     * @param UserIdentity $userIdentity
-     * @return User
+     * Return all user tasks.
      */
-    abstract public function getListOfTasks(UserIdentity $userIdentity): User;
+    abstract public function getTasks(): User;
 }

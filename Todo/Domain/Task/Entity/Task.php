@@ -77,13 +77,43 @@ class Task implements IPrintable
         return $this->identity;
     }
 
-    public function completed()
+    /**
+     * @return UserIdentity
+     */
+    public function userIdentity(): UserIdentity
+    {
+        return $this->userIdentity;
+    }
+
+    /**
+     * Complete a task.
+     */
+    public function complete()
     {
         $this->isCompleted = true;
     }
 
+    /**
+     * Complete a task.
+     */
+    public function incomplete()
+    {
+        $this->isCompleted = false;
+    }
+
+    /**
+     * @return string
+     */
     public function __toString(): string
     {
-        // TODO: Implement __toString() method.
+        return (string) $this->identity()->getId();
+    }
+
+    /**
+     * @param TaskIdentity $taskIdentity
+     */
+    public function setIdentity(TaskIdentity $taskIdentity)
+    {
+        $this->identity = $taskIdentity;
     }
 }

@@ -4,9 +4,11 @@
 namespace Docler\Infrastructure\Repository\Fake;
 
 use Docler\Domain\Task\Contract\Repository\ITaskRepository;
+use Docler\Domain\Task\Contract\Repository\IUserTaskRepository;
 use Docler\Domain\Task\Entity\Task;
 use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Domain\Task\Entity\User;
+use Docler\Domain\Task\Entity\User as UserEntity;
+use Docler\Domain\Task\Entity\UserIdentity;
 use Doctrine\Common\Collections\ArrayCollection;
 
 
@@ -18,19 +20,24 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * TODO: Inject user id __construct...
  */
-class FakeUserTaskRepository
+class FakeUserTaskRepository extends IUserTaskRepository
 {
+    /** @var $userIdentity UserEntity identity. */
     private $user;
 
-    public function setUser(User $user)
+    /**
+     * @param UserIdentity $userIdentity
+     */
+    public function setUser(UserIdentity $userIdentity)
     {
-        $this->user = $user;
+        $this->user = $userIdentity;
     }
-    
-    public function getTasks(): ArrayCollection
-    {
-        // TODO: Exceptionn user not found.
 
+    /**
+     * @return UserEntity
+     */
+    public function getTasks(): UserEntity
+    {
         // TODO: Implement getListOfTasks() method.
         $usersResultTasks = [
             [

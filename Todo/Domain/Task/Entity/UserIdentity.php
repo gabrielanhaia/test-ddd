@@ -3,6 +3,7 @@
 
 namespace Docler\Domain\Task\Entity;
 
+use Docler\Domain\Core\Entity\Comparable;
 use Docler\Domain\Core\Entity\IPrintable;
 
 /**
@@ -13,7 +14,9 @@ use Docler\Domain\Core\Entity\IPrintable;
  */
 class UserIdentity implements IPrintable
 {
-    /** @var int $id */
+    use Comparable;
+
+    /** @var int $id User identity. */
     protected $id;
 
     /**
@@ -40,6 +43,17 @@ class UserIdentity implements IPrintable
      */
     public function __toString(): string
     {
-        // TODO: Implement __toString() method.
+        return (string) $this->getId();
+    }
+
+    /**
+     * Define the interface to compare objects.
+     *
+     * @param UserIdentity $userIdentityToCompare
+     * @return bool
+     */
+    function equal(UserIdentity $userIdentityToCompare): bool
+    {
+        return ($userIdentityToCompare->getId() === $this->getId());
     }
 }
