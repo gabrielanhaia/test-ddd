@@ -1,11 +1,10 @@
 <?php
 
 
-namespace Docler\Application\Controller;
+namespace Controller;
 
 use Docler\Application\Service\CompleteTaskService;
 use Docler\Application\Service\GetTaskService;
-use Docler\Application\Service\Task;
 
 /**
  * Class TController
