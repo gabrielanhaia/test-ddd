@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Docler\Infrastructure\Task\Repository\Fake;
 
 use Docler\Domain\Task\Contract\Repository\ITaskRepository;

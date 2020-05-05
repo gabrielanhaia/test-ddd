@@ -27,5 +27,13 @@
     },
     "suggest": {
         "laravel/framework": "If your infrastructure depends on ORM Eloquent."
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+            ],
+            "aliases": {
+            }
+        }
     }
 }
