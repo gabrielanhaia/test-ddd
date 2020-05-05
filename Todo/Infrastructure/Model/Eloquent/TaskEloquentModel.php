@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class TaskEloquentModel extends Model
 {
     /** @var string $table Table name */
-    protected $table = 'task';
+    protected $table = 'tasks';
 
     /** @var array $fillable Fillable fields. */
     protected $fillable = [

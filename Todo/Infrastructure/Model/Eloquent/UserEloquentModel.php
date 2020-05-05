@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserEloquentModel extends Model
 {
     /** @var string $table Table name. */
-    protected $table = 'user';
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
