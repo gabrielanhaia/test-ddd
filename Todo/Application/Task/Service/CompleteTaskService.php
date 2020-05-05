@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Docler\Application\Service\Task;
+namespace Docler\Application\Task\Service;
 
 use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Application\Service\Task\TaskService as ApplicationTaskService;
+use Docler\Application\Task\Service\TaskService as ApplicationTaskService;
 
 /**
  * Class CompleteTask
- * @package Docler\Application\Service\Task
+ * @package Docler\Application\Task\Service
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

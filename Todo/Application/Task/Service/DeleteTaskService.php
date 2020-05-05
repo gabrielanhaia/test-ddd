@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Docler\Application\Service\Task;
+namespace Docler\Application\Task\Service;
 
 use Docler\Domain\{
     Task\Entity\TaskIdentity,
@@ -10,7 +10,7 @@ use Docler\Domain\{
 
 /**
  * Class DeleteTaskService
- * @package Docler\Application\Service\Task
+ * @package Docler\Application\Task\Service
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

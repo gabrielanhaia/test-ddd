@@ -1,18 +1,18 @@
 <?php
 
 
-namespace Docler\Application\Service\Task;
+namespace Docler\Application\Task\Service;
 
 use Docler\Domain\Task\Contract\Factory\ITaskFactory;
 use Docler\Domain\Task\Contract\Repository\ITaskRepository;
-use Docler\Application\Service\Task\Task as TaskRequestResponse;
+use Docler\Application\Task\Service\Task as TaskRequestResponse;
 use Docler\Domain\Task\Entity\TaskIdentity;
 use Docler\Domain\Task\Entity\UserIdentity;
 use Docler\Domain\Task\Service\TaskService as DomainTaskService;
 
 /**
  * Class CreateTaskService
- * @package Docler\Application\Service\Task
+ * @package Docler\Application\Task\Service
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

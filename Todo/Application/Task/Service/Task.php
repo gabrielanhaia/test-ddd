@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Docler\Application\Service\Task;
+namespace Docler\Application\Task\Service;
 
 /**
  * Class Task
- * @package Docler\Application\Service\Task
+ * @package Docler\Application\Task\Service
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
