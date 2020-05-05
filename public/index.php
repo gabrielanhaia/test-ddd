@@ -7,6 +7,8 @@ use Docler\Application\Service\Task\CompleteTaskService;
 use Docler\Application\Service\Task\IncompleteTaskService;
 use Docler\Domain\Task\Factory\TaskFactory;
 use Docler\Domain\Task\Factory\UserFactory;
+use Docler\Domain\Task\Service\TaskService;
+use Docler\Domain\Task\Validator\TaskValidator;
 use Docler\Infrastructure\Repository\Fake\FakeTaskRepository;
 
 require_once(__DIR__ . '/../vendor/autoload.php');
@@ -16,8 +18,14 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 $userFactory = new UserFactory;
 $taskFactory = new TaskFactory;
 
+$taskValidator = new TaskValidator;
+
+$taskRepository = new FakeTaskRepository($taskFactory);
+$domainTaskService = new TaskService($taskRepository, $taskValidator);
 
 $controllerTest = new TController();
+
+try {
 
 // GET TASK.
 //$controllerTest->getTask(1, new GetTaskService(
@@ -44,18 +52,22 @@ $controllerTest = new TController();
 //    )
 //);
 
-$controllerTest->createTask(
-    [
-        'is_completed' => true,
-        'user_id' => 12323,
-        'name' => 'Test task.'
-    ],
-    new CreateTaskService(
-        new FakeTaskRepository($taskFactory),
-        $taskFactory
-    )
-);
+    $controllerTest->createTask(
+        [
+            'is_completed' => true,
+            'user_id' => 12323,
+            'name' => 'Test task.'
+        ],
+        new CreateTaskService(
+            $taskRepository,
+            $taskFactory,
+            $domainTaskService
+        )
+    );
 
+} catch (\Exception $exception) {
+    dd($exception);
+}
 
 /**
  * Class TController

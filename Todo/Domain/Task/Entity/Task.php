@@ -59,6 +59,7 @@ class Task implements IPrintable
     public function setName(string $name): self
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -111,9 +112,11 @@ class Task implements IPrintable
 
     /**
      * @param TaskIdentity $taskIdentity
+     * @return Task
      */
-    public function setIdentity(TaskIdentity $taskIdentity)
+    public function setIdentity(TaskIdentity $taskIdentity): self
     {
         $this->identity = $taskIdentity;
+        return $this;
     }
 }

@@ -42,6 +42,7 @@ class CreateTaskService extends TaskService
      *
      * @param Task $taskRequestResponse DTO object with the task data.
      * @return Task
+     * @throws \Docler\Domain\Core\Exception\ValidatorException
      */
     public function execute(TaskRequestResponse $taskRequestResponse): TaskRequestResponse
     {
@@ -55,7 +56,7 @@ class CreateTaskService extends TaskService
             $taskRequestResponse->isCompleted()
         );
 
-        $taskCreated = $this->taskRepository->storeTask($task);
+        $taskCreated = $this->domainTaskService->createTask($task);
 
         $taskRequestResponse->setIdentity($taskCreated->identity()->getId());
 

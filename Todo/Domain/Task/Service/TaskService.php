@@ -5,9 +5,10 @@ namespace Docler\Domain\Task\Service;
 
 use Docler\Domain\{
     Task\Contract\Repository\ITaskRepository,
-    Task\Entity\Task,
+    Task\Entity\Task as TaskEntity,
     Task\Entity\TaskIdentity,
-    Task\Entity\UserIdentity
+    Task\Entity\UserIdentity,
+    Task\Validator\TaskValidator
 };
 
 /**
@@ -22,24 +23,33 @@ class TaskService
      * @var ITaskRepository
      */
     private $taskRepository;
+    /**
+     * @var TaskValidator
+     */
+    private $taskValidator;
 
     /**
      * TaskService constructor.
      * @param ITaskRepository $taskRepository
+     * @param TaskValidator $taskValidator
      */
-    public function __construct(ITaskRepository $taskRepository)
+    public function __construct(
+        ITaskRepository $taskRepository,
+        TaskValidator $taskValidator
+    )
     {
         $this->taskRepository = $taskRepository;
+        $this->taskValidator = $taskValidator;
     }
 
     /**
      * Complete a task.
      *
      * @param TaskIdentity $taskIdentity
-     * @return Task
+     * @return TaskEntity
      * @throws \Exception
      */
-    public function completeTask(TaskIdentity $taskIdentity): Task
+    public function completeTask(TaskIdentity $taskIdentity): TaskEntity
     {
         $taskEntity = $this->taskRepository->getTask($taskIdentity);
 
@@ -58,10 +68,10 @@ class TaskService
      * Incomplete a task.
      *
      * @param TaskIdentity $taskIdentity
-     * @return Task
+     * @return TaskEntity
      * @throws \Exception
      */
-    public function incompleteTask(TaskIdentity $taskIdentity): Task
+    public function incompleteTask(TaskIdentity $taskIdentity): TaskEntity
     {
         $taskEntity = $this->taskRepository->getTask($taskIdentity);
 
@@ -95,5 +105,21 @@ class TaskService
         }
 
         $this->taskRepository->deleteTask($taskIdentity);
+    }
+
+    /**
+     * Create a new task.
+     *
+     * @param TaskEntity $taskEntity Task entity to be created.
+     * @return TaskEntity
+     * @throws \Docler\Domain\Core\Exception\ValidatorException
+     */
+    public function createTask(TaskEntity $taskEntity): TaskEntity
+    {
+        $this->taskValidator->validateCreateTask($taskEntity);
+
+        $taskEntity = $this->taskRepository->storeTask($taskEntity);
+
+        return $taskEntity;
     }
 }
