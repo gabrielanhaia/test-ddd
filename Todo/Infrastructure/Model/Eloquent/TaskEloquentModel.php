@@ -19,8 +19,8 @@ class TaskEloquentModel extends Model
     /** @var array $fillable Fillable fields. */
     protected $fillable = [
         'id',
-        'name',
-        'is_completed',
+        'title',
+        'is_done',
         'created_at',
         'updated_at'
     ];

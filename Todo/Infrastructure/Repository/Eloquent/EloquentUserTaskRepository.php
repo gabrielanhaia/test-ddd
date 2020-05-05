@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Docler\Infrastructure\Repository\Eloquent;
 
 use Docler\Domain\Task\Contract\Repository\IUserTaskRepository;

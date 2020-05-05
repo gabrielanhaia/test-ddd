@@ -26,7 +26,7 @@ class EloquentTaskRepository extends ITaskRepository
     public function updateStatusTask(TaskEntity $task): TaskEntity
     {
         TaskEloquentModel::where('id', '=', $task->identity()->getId())
-            ->update('is_completed', $task->isCompleted());
+            ->update('is_done', $task->isCompleted());
 
         return $task;
     }
@@ -49,8 +49,8 @@ class EloquentTaskRepository extends ITaskRepository
         $taskResult = $this->taskFactory->build(
             $taskIdentity,
             $userIdentity,
-            $taskEloquentResult->name,
-            $taskEloquentResult->is_completed
+            $taskEloquentResult->title,
+            $taskEloquentResult->is_done
         );
 
         return $taskResult;
@@ -66,9 +66,9 @@ class EloquentTaskRepository extends ITaskRepository
     {
         if (empty($task->identity()->getId())) {
             $taskEloquentCreated = TaskEloquentModel::create([
-                'name' => $task->name(),
+                'title' => $task->name(),
                 'user_id' => $task->userIdentity()->getId(),
-                'is_completed' => $task->isCompleted(),
+                'is_done' => $task->isCompleted(),
             ]);
 
             $taskIdentity = new TaskIdentity($taskEloquentCreated->id);
