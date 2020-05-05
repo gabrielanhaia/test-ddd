@@ -22,17 +22,6 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class FakeUserTaskRepository extends IUserTaskRepository
 {
-    /** @var $userIdentity UserEntity identity. */
-    private $user;
-
-    /**
-     * @param UserIdentity $userIdentity
-     */
-    public function setUser(UserIdentity $userIdentity)
-    {
-        $this->user = $userIdentity;
-    }
-
     /**
      * @return UserEntity
      */

@@ -3,8 +3,12 @@
 
 namespace Docler\Application\Service\Task;
 
-use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Domain\Task\Entity\UserIdentity;
+use Docler\Domain\{
+    Task\Contract\Repository\ITaskRepository,
+    Task\Entity\TaskIdentity,
+    Task\Entity\UserIdentity,
+    Task\Service\TaskService as DomainTaskService
+};
 
 /**
  * Class DeleteTaskService
@@ -14,6 +18,14 @@ use Docler\Domain\Task\Entity\UserIdentity;
  */
 class DeleteTaskService extends TaskService
 {
+    public function __construct(
+        ITaskRepository $taskRepository,
+        DomainTaskService $domainTaskService
+    )
+    {
+        parent::__construct($taskRepository, $domainTaskService);
+    }
+
     /**
      * Delete a task.
      *
@@ -26,12 +38,6 @@ class DeleteTaskService extends TaskService
 
         $taskIdentity = new TaskIdentity($taskId);
 
-        $task = $this->taskRepository->getTask($taskIdentity);
-
-        if (empty($task) || !($task->userIdentity()->equal($authUserIdentity))) {
-            throw new \Exception('Task not found.');
-        }
-
-        $this->taskRepository->deleteTask($taskIdentity);
+        $this->domainTaskService->deleteTask($authUserIdentity, $taskIdentity);
     }
 }

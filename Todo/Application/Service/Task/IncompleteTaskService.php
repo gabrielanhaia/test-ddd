@@ -25,15 +25,7 @@ class IncompleteTaskService extends TaskService
     {
         $taskIdentity = new TaskIdentity($taskId);
 
-        $taskEntity = $this->taskRepository->getTask($taskIdentity);
-
-        if (empty($taskEntity)) {
-            throw new \Exception('Task not found.');
-        }
-
-        $taskEntity->incomplete();
-
-        $taskEntity = $this->taskRepository->updateStatusTask($taskEntity);
+       $taskEntity = $this->domainTaskService->incompleteTask($taskIdentity);
 
         $taskResponse = new Task(
             $taskEntity->identity()->getId(),

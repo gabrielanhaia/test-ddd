@@ -39,7 +39,7 @@ abstract class ITaskRepository
      * @param TaskIdentity $taskIdentity
      * @return TaskEntity
      */
-    abstract public function getTask(TaskIdentity $taskIdentity): TaskEntity;
+    abstract public function getTask(TaskIdentity $taskIdentity): ?TaskEntity;
 
     /**
      * Method responsible for creating/updating a task.

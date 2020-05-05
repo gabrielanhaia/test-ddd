@@ -4,6 +4,7 @@
 namespace Docler\Application\Service\Task;
 
 use Docler\Domain\Task\Entity\TaskIdentity;
+use Docler\Application\Service\Task\TaskService as ApplicationTaskService;
 
 /**
  * Class CompleteTask
@@ -11,7 +12,7 @@ use Docler\Domain\Task\Entity\TaskIdentity;
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
-class CompleteTaskService extends TaskService
+class CompleteTaskService extends ApplicationTaskService
 {
     /**
      * Execute de complete task service.
@@ -25,15 +26,7 @@ class CompleteTaskService extends TaskService
     {
         $taskIdentity = new TaskIdentity($taskId);
 
-        $taskEntity = $this->taskRepository->getTask($taskIdentity);
-
-        if (empty($taskEntity)) {
-            throw new \Exception('Task not found.');
-        }
-
-        $taskEntity->complete();
-
-        $taskEntity = $this->taskRepository->updateStatusTask($taskEntity);
+        $taskEntity = $this->domainTaskService->completeTask($taskIdentity);
 
         $taskResponse = new Task(
             $taskEntity->identity()->getId(),

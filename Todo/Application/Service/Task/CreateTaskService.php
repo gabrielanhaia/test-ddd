@@ -8,6 +8,7 @@ use Docler\Domain\Task\Contract\Repository\ITaskRepository;
 use Docler\Application\Service\Task\Task as TaskRequestResponse;
 use Docler\Domain\Task\Entity\TaskIdentity;
 use Docler\Domain\Task\Entity\UserIdentity;
+use Docler\Domain\Task\Service\TaskService as DomainTaskService;
 
 /**
  * Class CreateTaskService
@@ -25,10 +26,14 @@ class CreateTaskService extends TaskService
      *
      * @param ITaskRepository $taskRepository
      * @param ITaskFactory $taskFactory
+     * @param DomainTaskService $domainTaskService
      */
-    public function __construct(ITaskRepository $taskRepository, ITaskFactory $taskFactory)
-    {
-        parent::__construct($taskRepository);
+    public function __construct(
+        ITaskRepository $taskRepository,
+        ITaskFactory $taskFactory,
+        DomainTaskService $domainTaskService
+    ) {
+        parent::__construct($taskRepository, $domainTaskService);
         $this->taskFactory = $taskFactory;
     }
 

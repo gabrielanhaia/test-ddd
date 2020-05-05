@@ -19,11 +19,22 @@ abstract class TaskService
     protected $taskRepository;
 
     /**
-     * CreateTaskService constructor.
-     * @param ITaskRepository $taskRepository
+     * @var \Docler\Domain\Task\Service\TaskService
      */
-    public function __construct(ITaskRepository $taskRepository)
+    protected $domainTaskService;
+
+    /**
+     * CreateTaskService constructor.
+     *
+     * @param ITaskRepository $taskRepository
+     * @param \Docler\Domain\Task\Service\TaskService $domainTaskService
+     */
+    public function __construct(
+        ITaskRepository $taskRepository,
+        \Docler\Domain\Task\Service\TaskService $domainTaskService
+    )
     {
         $this->taskRepository = $taskRepository;
+        $this->domainTaskService = $domainTaskService;
     }
 }

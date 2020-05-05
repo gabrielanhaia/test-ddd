@@ -31,7 +31,7 @@ class FakeTaskRepository extends ITaskRepository
      * @param TaskIdentity $identity
      * @return Task
      */
-    public function getTask(TaskIdentity $identity): Task
+    public function getTask(TaskIdentity $identity): ?Task
     {
         // Simulação
         $taskDatabase = [

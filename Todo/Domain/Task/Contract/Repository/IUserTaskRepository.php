@@ -5,6 +5,8 @@ namespace Docler\Domain\Task\Contract\Repository;
 use Docler\Domain\Task\Contract\Factory\ITaskFactory;
 use Docler\Domain\Task\Contract\Factory\IUserFactory;
 use Docler\Domain\Task\Entity\User;
+use Docler\Domain\Task\Entity\User as UserEntity;
+use Docler\Domain\Task\Entity\UserIdentity;
 
 /**
  * Class IUserTaskRepository
@@ -18,6 +20,9 @@ abstract class IUserTaskRepository
     /** @var ITaskFactory $taskFactory Task entity factory. */
     protected $taskFactory;
 
+    /** @var UserIdentity $userIdentity User identity. */
+    protected $userIdentity;
+
     /**
      * IUserTaskRepository constructor.
      *
@@ -28,6 +33,14 @@ abstract class IUserTaskRepository
     {
         $this->userFactory = $userFactory;
         $this->taskFactory = $taskFactory;
+    }
+
+    /**
+     * @param UserIdentity $userIdentity
+     */
+    public function setUser(UserIdentity $userIdentity)
+    {
+        $this->userIdentity = $userIdentity;
     }
 
     /**
