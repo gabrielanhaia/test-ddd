@@ -3,6 +3,7 @@
 
 namespace Docler\Infrastructure\Model\Eloquent;
 
+use Docler\Infrastructure\Persistence\Task\UserEloquentModel;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -30,6 +31,6 @@ class TaskEloquentModel extends Model
      */
     public function taskOwner()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(UserEloquentModel::class, 'user_id', 'id');
     }
 }

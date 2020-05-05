@@ -3,6 +3,7 @@
 
 namespace Docler\Infrastructure\Persistence\Task;
 
+use Docler\Infrastructure\Model\Eloquent\TaskEloquentModel;
 use Illuminate\Database\Eloquent\Model;
 
 /**

@@ -39,7 +39,7 @@ class EloquentTaskRepository extends ITaskRepository
      */
     public function getTask(TaskIdentity $taskIdentity): ?TaskEntity
     {
-        $taskEloquentResult = TaskEloquentModel::first($taskIdentity);
+        $taskEloquentResult = TaskEloquentModel::find($taskIdentity);
 
         if (empty($taskEloquentResult)) {
             return null;
