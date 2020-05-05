@@ -17,15 +17,11 @@ class ValidatorException extends \Exception
     /** @var string $entityName Class name. */
     private $entityName;
 
-    /** @var mixed $currentData Data validated. */
-    private $currentData;
-
     /**
      * ValidatorException constructor.
      *
      * @param string $validationName
      * @param object $entityName
-     * @param $currentData
      * @param string $message
      * @param int $code
      * @param Throwable|null $previous
@@ -33,7 +29,6 @@ class ValidatorException extends \Exception
     public function __construct(
         string $validationName,
         object $entityName,
-        $currentData,
         $message = "",
         $code = 0,
         Throwable $previous = null
@@ -42,6 +37,41 @@ class ValidatorException extends \Exception
         parent::__construct($message, $code, $previous);
         $this->validationName = $validationName;
         $this->entityName = get_class($entityName);
-        $this->currentData = $currentData;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValidationName(): string
+    {
+        return $this->validationName;
+    }
+
+    /**
+     * @param string $validationName
+     * @return ValidatorException
+     */
+    public function setValidationName(string $validationName): ValidatorException
+    {
+        $this->validationName = $validationName;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntityName(): string
+    {
+        return $this->entityName;
+    }
+
+    /**
+     * @param string $entityName
+     * @return ValidatorException
+     */
+    public function setEntityName(string $entityName): ValidatorException
+    {
+        $this->entityName = $entityName;
+        return $this;
     }
 }

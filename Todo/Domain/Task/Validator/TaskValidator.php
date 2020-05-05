@@ -23,7 +23,7 @@ class TaskValidator
      * @param TaskEntity $task
      * @throws ValidatorException
      */
-    public function validateCreateTask(TaskEntity $task)
+    public function validateCreateTask(TaskEntity $task): void
     {
         if (!empty($task->identity()->getId())) {
             throw new ValidatorException(

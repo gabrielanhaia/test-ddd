@@ -5,7 +5,8 @@
         "doctrine/collections": "^1.6"
     },
     "require-dev": {
-        "laravel/framework": "^7.9"
+        "laravel/framework": "^7.9",
+        "phpunit/phpunit": "^9.1"
     },
     "license": "MIT",
     "authors": [
@@ -14,9 +15,14 @@
             "email": "anhaia.gabriel@gmail.com"
         }
     ],
-    "autoload-dev": {
+    "autoload": {
         "psr-4": {
             "Docler\\": "Todo/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "suggest": {

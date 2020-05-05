@@ -34,8 +34,8 @@ class Task implements IPrintable
     public function __construct(
         TaskIdentity $identity,
         UserIdentity $userIdentity,
-        string $name,
-        bool $isCompleted
+        string $name = null,
+        bool $isCompleted = null
     )
     {
         $this->identity = $identity;
@@ -47,7 +47,7 @@ class Task implements IPrintable
     /**
      * @return string
      */
-    public function name(): string
+    public function name(): ?string
     {
         return $this->name;
     }
@@ -65,7 +65,7 @@ class Task implements IPrintable
     /**
      * @return bool
      */
-    public function isCompleted(): bool
+    public function isCompleted(): ?bool
     {
         return $this->isCompleted;
     }
