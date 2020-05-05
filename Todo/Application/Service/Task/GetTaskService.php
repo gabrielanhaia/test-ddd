@@ -28,8 +28,8 @@ class GetTaskService extends TaskService
 
         $task = new Task(
             $taskEntity->identity()->getId(),
-            $taskEntity->name(),
             $taskEntity->isCompleted(),
+            $taskEntity->name(),
             $taskEntity->userIdentity()->getId()
         );
 
