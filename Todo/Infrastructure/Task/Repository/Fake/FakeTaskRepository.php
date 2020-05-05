@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Docler\Infrastructure\Repository\Fake;
+namespace Docler\Infrastructure\Task\Repository\Fake;
 
 use Docler\Domain\Task\Contract\Repository\ITaskRepository;
 use Docler\Domain\Task\Entity\Task;
@@ -10,7 +10,7 @@ use Docler\Domain\Task\Entity\UserIdentity;
 
 /**
  * Class FakeTaskRepository
- * @package Docler\Infrastructure\Repository
+ * @package Docler\Infrastructure\Task\Repository
  */
 class FakeTaskRepository extends ITaskRepository
 {

@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Docler\Infrastructure\Persistence\Task;
+namespace Docler\Infrastructure\Task\Persistence\Task;
 
-use Docler\Infrastructure\Model\Eloquent\TaskEloquentModel;
+use Docler\Infrastructure\Task\Model\Eloquent\TaskEloquentModel;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class UserEloquentModel
- * @package Docler\Infrastructure\Model\Eloquent
+ * @package Docler\Infrastructure\Task\Model\Eloquent
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

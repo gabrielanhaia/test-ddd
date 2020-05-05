@@ -1,13 +1,13 @@
 <?php
 
-namespace Docler\Infrastructure\Repository\Eloquent;
+namespace Docler\Infrastructure\Task\Repository\Eloquent;
 
 use Docler\Domain\Task\Contract\Repository\IUserTaskRepository;
 use Docler\Domain\Task\Entity\{TaskIdentity, User};
 
 /**
  * Class EloquentUserTaskRepository
- * @package Docler\Infrastructure\Repository\Eloquent
+ * @package Docler\Infrastructure\Task\Repository\Eloquent
  *
  * @author Gabriel Annhaia <anhaia.gabriel@gmail.com>
  */
