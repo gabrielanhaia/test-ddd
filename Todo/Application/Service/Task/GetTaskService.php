@@ -22,10 +22,6 @@ class GetTaskService extends TaskService
 
         $taskEntity = $this->domainTaskService->getTask($taskIdentity);
 
-        if (empty($taskEntity)) {
-            return null;
-        }
-
         $task = new Task(
             $taskEntity->identity()->getId(),
             $taskEntity->isCompleted(),

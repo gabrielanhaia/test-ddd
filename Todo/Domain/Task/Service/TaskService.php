@@ -128,10 +128,15 @@ class TaskService
      *
      * @param TaskIdentity $taskIdentity
      * @return TaskEntity|null
+     * @throws \Exception
      */
-    public function getTask(TaskIdentity $taskIdentity): ?TaskEntity
+    public function getTask(TaskIdentity $taskIdentity): TaskEntity
     {
         $task = $this->taskRepository->getTask($taskIdentity);
+
+        if (empty($taskEntity)) {
+            throw new \Exception('Task not found.');
+        }
 
         return $task;
     }
