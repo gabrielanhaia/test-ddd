@@ -13,14 +13,10 @@ use Docler\Domain\Task\Contract\Repository\ITaskRepository;
  */
 abstract class TaskService
 {
-    /**
-     * @var ITaskRepository
-     */
+    /** @var ITaskRepository $taskRepository */
     protected $taskRepository;
 
-    /**
-     * @var \Docler\Domain\Task\Service\TaskService
-     */
+    /** @var \Docler\Domain\Task\Service\TaskService $domainTaskService */
     protected $domainTaskService;
 
     /**

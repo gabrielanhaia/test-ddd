@@ -4,10 +4,8 @@
 namespace Docler\Application\Service\Task;
 
 use Docler\Domain\{
-    Task\Contract\Repository\ITaskRepository,
     Task\Entity\TaskIdentity,
     Task\Entity\UserIdentity,
-    Task\Service\TaskService as DomainTaskService
 };
 
 /**
@@ -18,14 +16,6 @@ use Docler\Domain\{
  */
 class DeleteTaskService extends TaskService
 {
-    public function __construct(
-        ITaskRepository $taskRepository,
-        DomainTaskService $domainTaskService
-    )
-    {
-        parent::__construct($taskRepository, $domainTaskService);
-    }
-
     /**
      * Delete a task.
      *

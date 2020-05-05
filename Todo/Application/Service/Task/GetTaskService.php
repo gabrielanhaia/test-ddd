@@ -2,7 +2,6 @@
 
 namespace Docler\Application\Service\Task;
 
-use Docler\Domain\Task\Contract\Repository\ITaskRepository;
 use Docler\Domain\Task\Entity\TaskIdentity;
 
 /**
@@ -21,7 +20,7 @@ class GetTaskService extends TaskService
     {
         $taskIdentity = new TaskIdentity($taskId);
 
-        $taskEntity = $this->taskRepository->getTask($taskIdentity);
+        $taskEntity = $this->domainTaskService->getTask($taskIdentity);
 
         if (empty($taskEntity)) {
             return null;

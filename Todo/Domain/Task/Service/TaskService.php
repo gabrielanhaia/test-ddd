@@ -122,4 +122,17 @@ class TaskService
 
         return $taskEntity;
     }
+
+    /**
+     * Get a task.
+     *
+     * @param TaskIdentity $taskIdentity
+     * @return TaskEntity|null
+     */
+    public function getTask(TaskIdentity $taskIdentity): ?TaskEntity
+    {
+        $task = $this->taskRepository->getTask($taskIdentity);
+
+        return $task;
+    }
 }
