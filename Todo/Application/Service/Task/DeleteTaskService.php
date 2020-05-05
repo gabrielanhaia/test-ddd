@@ -20,11 +20,13 @@ class DeleteTaskService extends TaskService
      * Delete a task.
      *
      * @param int $taskId Task identity to be deleted.
+     * @param int $currentUserId Current user id performing the action.
+     *
      * @throws \Exception
      */
-    public function execute(int $taskId): void
+    public function execute(int $taskId, int $currentUserId): void
     {
-        $authUserIdentity = new UserIdentity(11111);
+        $authUserIdentity = new UserIdentity($currentUserId);
 
         $taskIdentity = new TaskIdentity($taskId);
 
