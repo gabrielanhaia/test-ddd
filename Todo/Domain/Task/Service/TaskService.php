@@ -134,7 +134,7 @@ class TaskService
     {
         $task = $this->taskRepository->getTask($taskIdentity);
 
-        if (empty($taskEntity)) {
+        if (empty($task)) {
             throw new \Exception('Task not found.');
         }
 
