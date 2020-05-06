@@ -4,9 +4,7 @@
 namespace Docler\Infrastructure\Task\Repository\Eloquent;
 
 use Docler\Domain\Task\Contract\Repository\ITaskRepository;
-use Docler\Domain\Task\Entity\Task as TaskEntity;
-use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Domain\Task\Entity\UserIdentity;
+use Docler\Domain\Task\Entity\{Task as TaskEntity, TaskIdentity, UserIdentity};
 use Docler\Infrastructure\Task\Model\Eloquent\TaskEloquentModel;
 
 /**
@@ -26,7 +24,7 @@ class EloquentTaskRepository extends ITaskRepository
     public function updateStatusTask(TaskEntity $task): TaskEntity
     {
         TaskEloquentModel::where('id', '=', $task->identity()->getId())
-            ->update('is_done', $task->isCompleted());
+            ->update(['is_done', $task->isCompleted()]);
 
         return $task;
     }
