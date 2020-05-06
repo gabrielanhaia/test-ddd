@@ -3,8 +3,7 @@
 
 namespace App\Task\Domain\Event;
 
-use Docler\Domain\Core\Event\DomainEvent;
-use Docler\Domain\Task\Entity\UserIdentity;
+use Docler\Domain\{Core\Event\DomainEvent, Task\Entity\Task, Task\Entity\UserIdentity};
 
 /**
  * Class TaskCompleted
@@ -15,49 +14,39 @@ use Docler\Domain\Task\Entity\UserIdentity;
  */
 class TaskCompleted extends DomainEvent
 {
-    /** @var UserIdentity $userId */
-    private $userId;
-
-    /** @var string $userEmail */
-    private $userEmail;
+    /** @var Task $task Task completed. */
+    private $task;
 
     /**
      * TaskCompleted constructor.
-     * @param UserIdentity $userIdentity
-     * @param string $userEmail
+     * @param Task $task
      * @throws \Exception
-     *
-     *
-     * TODO: Task como parametro.
      */
-    public function __construct(UserIdentity $userIdentity, string $userEmail)
+    public function __construct(Task $task)
     {
-        $this->userId = $userIdentity;
-        $this->userEmail = $userEmail;
         $this->occurredOn = new \DateTimeImmutable();
-    }
-
-    public function userId(): UserIdentity
-    {
-        return $this->userId;
-    }
-
-    public function userEmail(): string
-    {
-        return $this->userEmail;
-    }
-
-    public function occurredOn()
-    {
-        // TODO: Implement occurredOn() method.
+        $this->task = $task;
     }
 
     /**
-     * @return mixed|void
+     * @return Task
      */
-    public function publish()
+    public function task(): Task
     {
+        return $this->task;
+    }
 
-        // Faz algo....
+
+    public function occurredOn()
+    {
+        return $this->occurredOn;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEventName(): string
+    {
+        return self::class;
     }
 }

@@ -3,7 +3,9 @@
 
 namespace Docler\Domain\Task\Service;
 
+use App\Task\Domain\Event\TaskCompleted;
 use Docler\Domain\{
+    Core\Event\EventDispatcher,
     Task\Contract\Repository\ITaskRepository,
     Task\Entity\Task as TaskEntity,
     Task\Entity\TaskIdentity,
@@ -19,27 +21,30 @@ use Docler\Domain\{
  */
 class TaskService
 {
-    /**
-     * @var ITaskRepository
-     */
+    /** @var ITaskRepository $taskRepository Repository of tasks. */
     private $taskRepository;
-    /**
-     * @var TaskValidator
-     */
+
+    /** @var TaskValidator $taskValidator Responsible for validating the tasks. */
     private $taskValidator;
+
+    /** @var EventDispatcher $eventDispatcher Event dispatcher to deal with the events. */
+    private $eventDispatcher;
 
     /**
      * TaskService constructor.
      * @param ITaskRepository $taskRepository
      * @param TaskValidator $taskValidator
+     * @param EventDispatcher $eventDispatcher
      */
     public function __construct(
         ITaskRepository $taskRepository,
-        TaskValidator $taskValidator
+        TaskValidator $taskValidator,
+        EventDispatcher $eventDispatcher
     )
     {
         $this->taskRepository = $taskRepository;
         $this->taskValidator = $taskValidator;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     /**
@@ -60,6 +65,9 @@ class TaskService
         $taskEntity->complete();
 
         $taskEntity = $this->taskRepository->updateStatusTask($taskEntity);
+
+        $taskCompletedEvent = new TaskCompleted($taskEntity);
+        $this->eventDispatcher->dispatchNow($taskCompletedEvent);
 
         return $taskEntity;
     }

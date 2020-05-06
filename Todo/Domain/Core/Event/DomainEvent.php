@@ -19,7 +19,7 @@ abstract class DomainEvent
     abstract public function occurredOn();
 
     /**
-     * @return mixed
+     * @return string
      */
-    abstract public function publish();
+    abstract public function getEventName(): string ;
 }
