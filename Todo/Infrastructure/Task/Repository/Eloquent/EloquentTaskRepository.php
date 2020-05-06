@@ -24,7 +24,7 @@ class EloquentTaskRepository extends ITaskRepository
     public function updateStatusTask(TaskEntity $task): TaskEntity
     {
         TaskEloquentModel::where('id', '=', $task->identity()->getId())
-            ->update(['is_done', $task->isCompleted()]);
+            ->update(['is_done' => $task->isCompleted()]);
 
         return $task;
     }
