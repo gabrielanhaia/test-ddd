@@ -3,7 +3,7 @@
 
 namespace Docler\Domain\Task\Service;
 
-use App\Task\Domain\Event\TaskCompleted;
+use Docler\Task\Domain\Event\TaskCompleted;
 use Docler\Domain\{
     Core\Event\EventDispatcher,
     Task\Contract\Repository\ITaskRepository,
