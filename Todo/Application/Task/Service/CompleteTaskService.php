@@ -31,7 +31,8 @@ class CompleteTaskService extends ApplicationTaskService
         $taskResponse = new Task(
             $taskEntity->identity()->getId(),
             $taskEntity->isCompleted(),
-            $taskEntity->name()
+            $taskEntity->name(),
+            $taskEntity->userIdentity()->getId()
         );
 
         return $taskResponse;
