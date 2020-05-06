@@ -13,8 +13,11 @@ use Docler\Domain\Task\Entity\TaskIdentity;
 class GetTaskService extends TaskService
 {
     /**
+     * Get a task.
+     *
      * @param int $taskId
      * @return Task
+     * @throws \Exception
      */
     public function execute(int $taskId): ?Task
     {
