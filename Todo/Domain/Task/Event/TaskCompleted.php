@@ -1,9 +1,9 @@
 <?php
 
 
-namespace App\Task\Domain\Event;
+namespace Docler\Task\Domain\Event;
 
-use Docler\Domain\{Core\Event\DomainEvent, Task\Entity\Task, Task\Entity\UserIdentity};
+use Docler\Domain\{Core\Event\DomainEvent, Task\Entity\Task};
 
 /**
  * Class TaskCompleted
