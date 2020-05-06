@@ -36,7 +36,7 @@ class CreateTaskServiceTest extends TestCase
             $userIdentity->getId()
         );
 
-        $taskBuilded = new Task(
+        $taskBuilt = new Task(
             $taskIdentity,
             $userIdentity,
             $taskName,
@@ -49,25 +49,25 @@ class CreateTaskServiceTest extends TestCase
         $taskFactoryMock->shouldReceive('build')
             ->once()
             ->withArgs(
-                function (TaskIdentity $taskId, UserIdentity $userId, $name, $isCompleted) use ($taskBuilded) {
+                function (TaskIdentity $taskId, UserIdentity $userId, $name, $isCompleted) use ($taskBuilt) {
                     $result = is_null($taskId->getId())
-                        && ($userId->equal($taskBuilded->userIdentity()))
-                        && ($name === $taskBuilded->name())
-                        && ($isCompleted === $taskBuilded->isCompleted());
+                        && ($userId->equal($taskBuilt->userIdentity()))
+                        && ($name === $taskBuilt->name())
+                        && ($isCompleted === $taskBuilt->isCompleted());
 
                     return $result;
             })
-            ->andReturn($taskBuilded);
+            ->andReturn($taskBuilt);
 
         $newTaskIdentity = new TaskIdentity(1232132);
-        $taskCreated = clone $taskBuilded;
+        $taskCreated = clone $taskBuilt;
         $taskCreated->setIdentity($newTaskIdentity);
 
         $domainTaskServiceMock = \Mockery::mock(TaskService::class);
         $domainTaskServiceMock->shouldReceive('createTask')
             ->once()
-            ->with(\Mockery::on(function ($task) use ($taskBuilded) {
-                return $task == $taskBuilded;
+            ->with(\Mockery::on(function ($task) use ($taskBuilt) {
+                return $task == $taskBuilt;
             }))
             ->andReturn($taskCreated);
 

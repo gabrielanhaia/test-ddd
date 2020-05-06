@@ -1,7 +1,6 @@
 <?php
 
-
-namespace Docler\Task\Domain\Event;
+namespace Docler\Domain\Task\Event;
 
 use Docler\Domain\{Core\Event\DomainEvent, Task\Entity\Task};
 

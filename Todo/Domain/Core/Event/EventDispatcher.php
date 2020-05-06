@@ -3,7 +3,8 @@
 
 namespace Docler\Domain\Core\Event;
 
-use App\Task\Domain\Event\TaskCompleted;
+use Docler\Domain\Core\Exception\EventException;
+use Docler\Domain\Task\Event\TaskCompleted;
 
 /**
  * Class EventManager
@@ -19,7 +20,7 @@ class EventDispatcher
     ];
 
     /** @var IEventListener[] $listeners List of listeners to be processed/dispatched. */
-    private $listeners;
+    protected $listeners;
 
     /**
      * EventManager constructor.
@@ -34,7 +35,7 @@ class EventDispatcher
      */
     public function __clone()
     {
-        throw new \BadMethodCallException('Clone is not supported');
+        throw new \BadMethodCallException('Clone is not supported.');
     }
 
     /**
@@ -47,7 +48,7 @@ class EventDispatcher
     public function addListener(IEventListener $listener, string $eventName)
     {
         if (!in_array($eventName, $this->eventsAllowed)) {
-            throw new \Exception('Event not allowed.');
+            throw new EventException('Event not allowed.');
         }
 
         $this->listeners[$eventName][] = $listener;
@@ -70,7 +71,7 @@ class EventDispatcher
      */
     public function dispatchNow(DomainEvent $event)
     {
-        foreach ($this->listeners as $listener) {
+        foreach ($this->listeners[get_class($event)] as $listener) {
             $listener->handle($event);
         }
     }
