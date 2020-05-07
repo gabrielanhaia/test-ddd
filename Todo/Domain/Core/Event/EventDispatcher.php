@@ -69,9 +69,15 @@ class EventDispatcher
      *
      * @param DomainEvent $event Event to be dispatched.
      */
-    public function dispatchNow(DomainEvent $event)
+    public function dispatchNow(DomainEvent $event): void
     {
-        foreach ($this->listeners[get_class($event)] as $listener) {
+        $eventName = $event->getEventName();
+
+        if (empty($eventName)) {
+            return;
+        }
+
+        foreach ($this->listeners[$eventName] as $listener) {
             $listener->handle($event);
         }
     }
