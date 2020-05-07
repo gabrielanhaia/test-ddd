@@ -73,7 +73,7 @@ class EventDispatcher
     {
         $eventName = $event->getEventName();
 
-        if (empty($eventName)) {
+        if (empty($this->listeners[$eventName])) {
             return;
         }
 
