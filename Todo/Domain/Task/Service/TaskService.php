@@ -3,15 +3,13 @@
 
 namespace Docler\Domain\Task\Service;
 
-use Docler\Task\Domain\Event\TaskCompleted;
-use Docler\Domain\{
-    Core\Event\EventDispatcher,
-    Task\Contract\Repository\ITaskRepository,
-    Task\Entity\Task as TaskEntity,
-    Task\Entity\TaskIdentity,
-    Task\Entity\UserIdentity,
-    Task\Validator\TaskValidator
-};
+use Docler\Domain\Core\Event\EventDispatcher;
+use Docler\Domain\Task\Contract\Repository\ITaskRepository;
+use Docler\Domain\Task\Entity\Task as TaskEntity;
+use Docler\Domain\Task\Entity\TaskIdentity;
+use Docler\Domain\Task\Entity\UserIdentity;
+use Docler\Domain\Task\Event\TaskCompleted;
+use Docler\Domain\Task\Validator\TaskValidator;
 
 /**
  * This is the task service in the "Domain layer".

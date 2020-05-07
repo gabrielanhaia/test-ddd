@@ -1,7 +1,6 @@
 <?php
 
-
-namespace Tests\Unit\Domain\Factory;
+namespace Tests\Unit\Domain\Task\Factory;
 
 use Docler\Domain\Task\Entity\User as UserEntity;
 use Docler\Domain\Task\Entity\UserIdentity;

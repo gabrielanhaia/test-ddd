@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Tests\Unit\Domain\Factory;
+namespace Tests\Unit\Domain\Task\Factory;
 
 use Docler\Domain\Task\Entity\Task as TaskEntity;
 use Docler\Domain\Task\Entity\TaskIdentity;
