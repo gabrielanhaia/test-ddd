@@ -3,6 +3,7 @@
 
 namespace Docler\Infrastructure\Task\Repository\Eloquent;
 
+use Docler\Domain\Task\Contract\Factory\ITaskFactory;
 use Docler\Domain\Task\Contract\Repository\ITaskRepository;
 use Docler\Domain\Task\Entity\{Task as TaskEntity, TaskIdentity, UserIdentity};
 use Docler\Infrastructure\Task\Model\Eloquent\TaskEloquentModel;
@@ -16,6 +17,22 @@ use Docler\Infrastructure\Task\Model\Eloquent\TaskEloquentModel;
 class EloquentTaskRepository extends ITaskRepository
 {
     /**
+     * @var TaskEloquentModel
+     */
+    private $taskEloquentModel;
+
+    /**
+     * EloquentTaskRepository constructor.
+     * @param ITaskFactory $taskFactory
+     * @param TaskEloquentModel $taskEloquentModel
+     */
+    public function __construct(ITaskFactory $taskFactory, TaskEloquentModel $taskEloquentModel)
+    {
+        parent::__construct($taskFactory);
+        $this->taskEloquentModel = $taskEloquentModel;
+    }
+
+    /**
      * Update a status task.
      *
      * @param TaskEntity $task Task to be updated.
@@ -23,7 +40,7 @@ class EloquentTaskRepository extends ITaskRepository
      */
     public function updateStatusTask(TaskEntity $task): TaskEntity
     {
-        TaskEloquentModel::where('id', '=', $task->identity()->getId())
+        $this->taskEloquentModel::where('id', '=', $task->identity()->getId())
             ->update(['is_done' => $task->isCompleted()]);
 
         return $task;
@@ -37,7 +54,7 @@ class EloquentTaskRepository extends ITaskRepository
      */
     public function getTask(TaskIdentity $taskIdentity): ?TaskEntity
     {
-        $taskEloquentResult = TaskEloquentModel::find($taskIdentity);
+        $taskEloquentResult = $this->taskEloquentModel::find($taskIdentity);
 
         if (empty($taskEloquentResult)) {
             return null;
@@ -63,7 +80,7 @@ class EloquentTaskRepository extends ITaskRepository
     public function storeTask(TaskEntity $task): TaskEntity
     {
         if (empty($task->identity()->getId())) {
-            $taskEloquentCreated = TaskEloquentModel::create([
+            $taskEloquentCreated = $this->taskEloquentModel::create([
                 'title' => $task->name(),
                 'user_id' => $task->userIdentity()->getId(),
                 'is_done' => $task->isCompleted(),
@@ -86,6 +103,6 @@ class EloquentTaskRepository extends ITaskRepository
      */
     public function deleteTask(TaskIdentity $taskIdentity)
     {
-        TaskEloquentModel::destroy($taskIdentity->getId());
+        $this->taskEloquentModel::destroy($taskIdentity->getId());
     }
 }
