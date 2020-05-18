@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Docler\Domain\Core\Exception;
+namespace DDD\Domain\Core\Exception;
 
 use Throwable;
 
 /**
  * Class ValidatorException
- * @package Docler\Exception
+ * @package DDD\Exception
  */
 class ValidatorException extends \Exception
 {

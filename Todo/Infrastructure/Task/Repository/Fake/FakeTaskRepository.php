@@ -1,15 +1,15 @@
 <?php
 
-namespace Docler\Infrastructure\Task\Repository\Fake;
+namespace DDD\Infrastructure\Task\Repository\Fake;
 
-use Docler\Domain\Task\Contract\Repository\ITaskRepository;
-use Docler\Domain\Task\Entity\Task;
-use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Domain\Task\Entity\UserIdentity;
+use DDD\Domain\Task\Contract\Repository\ITaskRepository;
+use DDD\Domain\Task\Entity\Task;
+use DDD\Domain\Task\Entity\TaskIdentity;
+use DDD\Domain\Task\Entity\UserIdentity;
 
 /**
  * Class FakeTaskRepository
- * @package Docler\Infrastructure\Task\Repository
+ * @package DDD\Infrastructure\Task\Repository
  */
 class FakeTaskRepository extends ITaskRepository
 {

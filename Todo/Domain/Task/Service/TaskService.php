@@ -1,19 +1,19 @@
 <?php
 
 
-namespace Docler\Domain\Task\Service;
+namespace DDD\Domain\Task\Service;
 
-use Docler\Domain\Core\Event\EventDispatcher;
-use Docler\Domain\Task\Contract\Repository\ITaskRepository;
-use Docler\Domain\Task\Entity\Task as TaskEntity;
-use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Domain\Task\Entity\UserIdentity;
-use Docler\Domain\Task\Event\TaskCompleted;
-use Docler\Domain\Task\Validator\TaskValidator;
+use DDD\Domain\Core\Event\EventDispatcher;
+use DDD\Domain\Task\Contract\Repository\ITaskRepository;
+use DDD\Domain\Task\Entity\Task as TaskEntity;
+use DDD\Domain\Task\Entity\TaskIdentity;
+use DDD\Domain\Task\Entity\UserIdentity;
+use DDD\Domain\Task\Event\TaskCompleted;
+use DDD\Domain\Task\Validator\TaskValidator;
 
 /**
  * This is the task service in the "Domain layer".
- * @package Docler\Task\Service
+ * @package DDD\Task\Service
  *
  * @author Gabriel Annhaia <anhaia.gabriel@gmail.com>
  */
@@ -56,7 +56,7 @@ class TaskService
     {
         $taskEntity = $this->taskRepository->getTask($taskIdentity);
 
-        if (empty($taskEntity)) {
+        if ($taskEntity === null) {
             throw new \Exception('Task not found.');
         }
 
@@ -118,7 +118,7 @@ class TaskService
      *
      * @param TaskEntity $taskEntity Task entity to be created.
      * @return TaskEntity
-     * @throws \Docler\Domain\Core\Exception\ValidatorException
+     * @throws \DDD\Domain\Core\Exception\ValidatorException
      */
     public function createTask(TaskEntity $taskEntity): TaskEntity
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Docler\Domain\Task\Event;
+namespace DDD\Domain\Task\Event;
 
-use Docler\Domain\{Core\Event\DomainEvent, Task\Entity\Task};
+use DDD\Domain\{Core\Event\DomainEvent, Task\Entity\Task};
 
 /**
  * Class TaskCompleted

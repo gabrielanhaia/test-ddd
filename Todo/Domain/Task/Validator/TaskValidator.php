@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Docler\Domain\Task\Validator;
+namespace DDD\Domain\Task\Validator;
 
-use Docler\Domain\Task\Entity\Task as TaskEntity;
-use Docler\Domain\Core\Exception\ValidatorException;
+use DDD\Domain\Task\Entity\Task as TaskEntity;
+use DDD\Domain\Core\Exception\ValidatorException;
 
 /**
  * Class TaskValidator
- * @package Docler\Domain\Task\Validator
+ * @package DDD\Domain\Task\Validator
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

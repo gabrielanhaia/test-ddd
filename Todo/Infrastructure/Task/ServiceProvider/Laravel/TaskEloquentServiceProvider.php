@@ -1,6 +1,6 @@
 <?php
 
-namespace Docler\Infrastructure\Task\ServiceProvider\Laravel;
+namespace DDD\Infrastructure\Task\ServiceProvider\Laravel;
 
 use Illuminate\Support\ServiceProvider;
 

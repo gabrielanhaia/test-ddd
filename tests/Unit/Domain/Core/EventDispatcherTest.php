@@ -3,10 +3,10 @@
 
 namespace Tests\Unit\Domain\Core\Event;
 
-use Docler\Domain\Core\Event\EventDispatcher;
-use Docler\Domain\Core\Event\IEventListener;
-use Docler\Domain\Core\Exception\EventException;
-use Docler\Domain\Task\Event\TaskCompleted;
+use DDD\Domain\Core\Event\EventDispatcher;
+use DDD\Domain\Core\Event\IEventListener;
+use DDD\Domain\Core\Exception\EventException;
+use DDD\Domain\Task\Event\TaskCompleted;
 use Tests\Unit\TestCase;
 
 /**

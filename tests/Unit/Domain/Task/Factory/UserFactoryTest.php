@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Domain\Task\Factory;
 
-use Docler\Domain\Task\Entity\User as UserEntity;
-use Docler\Domain\Task\Entity\UserIdentity;
-use Docler\Domain\Task\Factory\UserFactory;
+use DDD\Domain\Task\Entity\User as UserEntity;
+use DDD\Domain\Task\Entity\UserIdentity;
+use DDD\Domain\Task\Factory\UserFactory;
 use Tests\Unit\TestCase;
 
 /**

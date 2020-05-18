@@ -1,16 +1,16 @@
 <?php
 
 
-namespace Docler\Infrastructure\Task\Repository\Eloquent;
+namespace DDD\Infrastructure\Task\Repository\Eloquent;
 
-use Docler\Domain\Task\Contract\Factory\ITaskFactory;
-use Docler\Domain\Task\Contract\Repository\ITaskRepository;
-use Docler\Domain\Task\Entity\{Task as TaskEntity, TaskIdentity, UserIdentity};
-use Docler\Infrastructure\Task\Model\Eloquent\TaskEloquentModel;
+use DDD\Domain\Task\Contract\Factory\ITaskFactory;
+use DDD\Domain\Task\Contract\Repository\ITaskRepository;
+use DDD\Domain\Task\Entity\{Task as TaskEntity, TaskIdentity, UserIdentity};
+use DDD\Infrastructure\Task\Model\Eloquent\TaskEloquentModel;
 
 /**
  * Class EloquentTaskRepository
- * @package Docler\Infrastructure\Task\Repository\Eloquent
+ * @package DDD\Infrastructure\Task\Repository\Eloquent
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

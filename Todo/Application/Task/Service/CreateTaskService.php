@@ -1,18 +1,18 @@
 <?php
 
 
-namespace Docler\Application\Task\Service;
+namespace DDD\Application\Task\Service;
 
-use Docler\Domain\Task\Contract\Factory\ITaskFactory;
-use Docler\Domain\Task\Contract\Repository\ITaskRepository;
-use Docler\Application\Task\Service\Task as TaskRequestResponse;
-use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Domain\Task\Entity\UserIdentity;
-use Docler\Domain\Task\Service\TaskService as DomainTaskService;
+use DDD\Domain\Task\Contract\Factory\ITaskFactory;
+use DDD\Domain\Task\Contract\Repository\ITaskRepository;
+use DDD\Application\Task\Service\Task as TaskRequestResponse;
+use DDD\Domain\Task\Entity\TaskIdentity;
+use DDD\Domain\Task\Entity\UserIdentity;
+use DDD\Domain\Task\Service\TaskService as DomainTaskService;
 
 /**
  * Class CreateTaskService
- * @package Docler\Application\Task\Service
+ * @package DDD\Application\Task\Service
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
@@ -42,7 +42,7 @@ class CreateTaskService extends TaskService
      *
      * @param Task $taskRequestResponse DTO object with the task data.
      * @return Task
-     * @throws \Docler\Domain\Core\Exception\ValidatorException
+     * @throws \DDD\Domain\Core\Exception\ValidatorException
      */
     public function execute(TaskRequestResponse $taskRequestResponse): TaskRequestResponse
     {

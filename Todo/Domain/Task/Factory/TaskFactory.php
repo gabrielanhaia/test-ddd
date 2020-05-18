@@ -1,16 +1,16 @@
 <?php
 
 
-namespace Docler\Domain\Task\Factory;
+namespace DDD\Domain\Task\Factory;
 
-use Docler\Domain\Task\Contract\Factory\ITaskFactory;
-use Docler\Domain\Task\Entity\Task;
-use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Domain\Task\Entity\UserIdentity;
+use DDD\Domain\Task\Contract\Factory\ITaskFactory;
+use DDD\Domain\Task\Entity\Task;
+use DDD\Domain\Task\Entity\TaskIdentity;
+use DDD\Domain\Task\Entity\UserIdentity;
 
 /**
  * Class TaskFactory
- * @package Docler\Domain\Task\Factory
+ * @package DDD\Domain\Task\Factory
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

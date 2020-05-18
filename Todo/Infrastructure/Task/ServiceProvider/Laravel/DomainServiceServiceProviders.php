@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Docler\Infrastructure\Task\ServiceProvider\Laravel;
+namespace DDD\Infrastructure\Task\ServiceProvider\Laravel;
 
-use Docler\Domain\Task\Service\TaskService;
+use DDD\Domain\Task\Service\TaskService;
 use Illuminate\Support\ServiceProvider;
 
 class DomainServiceServiceProviders extends ServiceProvider

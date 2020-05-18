@@ -3,10 +3,10 @@
 
 namespace Tests\Unit\Domain\Task\Factory;
 
-use Docler\Domain\Task\Entity\Task as TaskEntity;
-use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Domain\Task\Entity\UserIdentity;
-use Docler\Domain\Task\Factory\TaskFactory;
+use DDD\Domain\Task\Entity\Task as TaskEntity;
+use DDD\Domain\Task\Entity\TaskIdentity;
+use DDD\Domain\Task\Entity\UserIdentity;
+use DDD\Domain\Task\Factory\TaskFactory;
 use Tests\Unit\TestCase;
 
 /**

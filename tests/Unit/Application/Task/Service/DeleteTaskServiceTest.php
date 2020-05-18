@@ -2,11 +2,11 @@
 
 namespace Tests\Unit\Application\Task\Service;
 
-use Docler\Application\Task\Service\DeleteTaskService;
-use Docler\Domain\Task\Contract\Repository\ITaskRepository;
-use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Domain\Task\Entity\UserIdentity;
-use Docler\Domain\Task\Service\TaskService;
+use DDD\Application\Task\Service\DeleteTaskService;
+use DDD\Domain\Task\Contract\Repository\ITaskRepository;
+use DDD\Domain\Task\Entity\TaskIdentity;
+use DDD\Domain\Task\Entity\UserIdentity;
+use DDD\Domain\Task\Service\TaskService;
 use Tests\Unit\TestCase;
 
 /**

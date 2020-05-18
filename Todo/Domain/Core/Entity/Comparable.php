@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Docler\Domain\Core\Entity;
+namespace DDD\Domain\Core\Entity;
 
 /**
  * Interface IComparable
- * @package Docler\Domain\Core\Entity
+ * @package DDD\Domain\Core\Entity
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

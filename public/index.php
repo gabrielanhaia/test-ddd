@@ -1,15 +1,15 @@
 <?php
 
-use Docler\Application\Service\Task\CreateTaskService;
-use Docler\Application\Service\Task\DeleteTaskService;
-use Docler\Application\Service\Task\GetTaskService;
-use Docler\Application\Service\Task\CompleteTaskService;
-use Docler\Application\Service\Task\IncompleteTaskService;
-use Docler\Domain\Task\Factory\TaskFactory;
-use Docler\Domain\Task\Factory\UserFactory;
-use Docler\Domain\Task\Service\TaskService;
-use Docler\Domain\Task\Validator\TaskValidator;
-use Docler\Infrastructure\Repository\Fake\FakeTaskRepository;
+use DDD\Application\Service\Task\CreateTaskService;
+use DDD\Application\Service\Task\DeleteTaskService;
+use DDD\Application\Service\Task\GetTaskService;
+use DDD\Application\Service\Task\CompleteTaskService;
+use DDD\Application\Service\Task\IncompleteTaskService;
+use DDD\Domain\Task\Factory\TaskFactory;
+use DDD\Domain\Task\Factory\UserFactory;
+use DDD\Domain\Task\Service\TaskService;
+use DDD\Domain\Task\Validator\TaskValidator;
+use DDD\Infrastructure\Repository\Fake\FakeTaskRepository;
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
@@ -71,7 +71,7 @@ try {
 
 /**
  * Class TController
- * @package Docler\Application\Controller
+ * @package DDD\Application\Controller
  */
 class TController
 {
@@ -140,7 +140,7 @@ class TController
      */
     public function createTask(array $requestObject, CreateTaskService $createTaskService)
     {
-        $taskRequestResponse = new Docler\Application\Service\Task\Task(
+        $taskRequestResponse = new DDD\Application\Service\Task\Task(
             null,
             $requestObject['is_completed'],
             $requestObject['name'],

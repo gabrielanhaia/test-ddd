@@ -1,11 +1,11 @@
 <?php
 
-namespace Docler\Infrastructure\Task\ServiceProvider\Laravel;
+namespace DDD\Infrastructure\Task\ServiceProvider\Laravel;
 
-use Docler\Domain\Task\Contract\Factory\ITaskFactory;
-use Docler\Domain\Task\Contract\Factory\IUserFactory;
-use Docler\Domain\Task\Factory\TaskFactory;
-use Docler\Domain\Task\Factory\UserFactory;
+use DDD\Domain\Task\Contract\Factory\ITaskFactory;
+use DDD\Domain\Task\Contract\Factory\IUserFactory;
+use DDD\Domain\Task\Factory\TaskFactory;
+use DDD\Domain\Task\Factory\UserFactory;
 use Illuminate\Support\ServiceProvider;
 
 class FactoriesServiceProvider extends ServiceProvider

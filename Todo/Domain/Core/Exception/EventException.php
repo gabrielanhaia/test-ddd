@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Docler\Domain\Core\Exception;
+namespace DDD\Domain\Core\Exception;
 
 /**
  * Class EventException
- * @package Docler\Domain\Core\Exception
+ * @package DDD\Domain\Core\Exception
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

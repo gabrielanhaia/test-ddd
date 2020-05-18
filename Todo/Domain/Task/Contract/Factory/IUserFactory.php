@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Docler\Domain\Task\Contract\Factory;
+namespace DDD\Domain\Task\Contract\Factory;
 
-use Docler\Domain\Task\Entity\{User, UserIdentity};
+use DDD\Domain\Task\Entity\{User, UserIdentity};
 
 /**
  * Interface UserFactory
- * @package Docler\Domain\Task\Contract\Factory
+ * @package DDD\Domain\Task\Contract\Factory
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

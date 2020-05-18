@@ -3,11 +3,11 @@
 
 namespace Tests\Unit\Application\Task\Service;
 
-use Docler\Application\Task\Service\GetTaskService;
-use Docler\Application\Task\Service\Task as TaskRequestResponse;
-use Docler\Domain\Task\Contract\Repository\ITaskRepository;
-use Docler\Domain\Task\Entity\{Task, TaskIdentity, UserIdentity};
-use Docler\Domain\Task\Service\TaskService;
+use DDD\Application\Task\Service\GetTaskService;
+use DDD\Application\Task\Service\Task as TaskRequestResponse;
+use DDD\Domain\Task\Contract\Repository\ITaskRepository;
+use DDD\Domain\Task\Entity\{Task, TaskIdentity, UserIdentity};
+use DDD\Domain\Task\Service\TaskService;
 use Tests\Unit\TestCase;
 
 /**

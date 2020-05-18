@@ -1,5 +1,5 @@
 {
-    "name": "gabrielanhaia/docler",
+    "name": "gabrielanhaia/ddd",
     "require": {
         "symfony/var-dumper": "^5.0",
         "doctrine/collections": "^1.6"
@@ -18,7 +18,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Docler\\": "Todo/"
+            "DDD\\": "Todo/"
         }
     },
     "autoload-dev": {

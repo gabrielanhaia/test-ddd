@@ -1,20 +1,20 @@
 <?php
 
 
-namespace Docler\Infrastructure\Task\Repository\Fake;
+namespace DDD\Infrastructure\Task\Repository\Fake;
 
-use Docler\Domain\Task\Contract\Repository\ITaskRepository;
-use Docler\Domain\Task\Contract\Repository\IUserTaskRepository;
-use Docler\Domain\Task\Entity\Task;
-use Docler\Domain\Task\Entity\TaskIdentity;
-use Docler\Domain\Task\Entity\User as UserEntity;
-use Docler\Domain\Task\Entity\UserIdentity;
+use DDD\Domain\Task\Contract\Repository\ITaskRepository;
+use DDD\Domain\Task\Contract\Repository\IUserTaskRepository;
+use DDD\Domain\Task\Entity\Task;
+use DDD\Domain\Task\Entity\TaskIdentity;
+use DDD\Domain\Task\Entity\User as UserEntity;
+use DDD\Domain\Task\Entity\UserIdentity;
 use Doctrine\Common\Collections\ArrayCollection;
 
 
 /**
  * Class FakeUserTaskRepository
- * @package Docler\Infrastructure\Task\Repository
+ * @package DDD\Infrastructure\Task\Repository
  *
  *
  *

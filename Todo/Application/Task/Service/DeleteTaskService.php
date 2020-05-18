@@ -1,16 +1,16 @@
 <?php
 
 
-namespace Docler\Application\Task\Service;
+namespace DDD\Application\Task\Service;
 
-use Docler\Domain\{
+use DDD\Domain\{
     Task\Entity\TaskIdentity,
     Task\Entity\UserIdentity,
 };
 
 /**
  * Class DeleteTaskService
- * @package Docler\Application\Task\Service
+ * @package DDD\Application\Task\Service
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

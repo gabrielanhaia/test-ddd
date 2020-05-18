@@ -1,16 +1,16 @@
 <?php
 
 
-namespace Docler\Domain\Task\Contract\Repository;
+namespace DDD\Domain\Task\Contract\Repository;
 
-use Docler\Domain\Task\Contract\Factory\ITaskFactory;
-use Docler\Domain\Task\Contract\Factory\IUserFactory;
-use Docler\Domain\Task\Entity\User;
-use Docler\Domain\Task\Entity\UserIdentity;
+use DDD\Domain\Task\Contract\Factory\ITaskFactory;
+use DDD\Domain\Task\Contract\Factory\IUserFactory;
+use DDD\Domain\Task\Entity\User;
+use DDD\Domain\Task\Entity\UserIdentity;
 
 /**
  * Class IUserRepository
- * @package Docler\Domain\Task\Contract\Repository
+ * @package DDD\Domain\Task\Contract\Repository
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

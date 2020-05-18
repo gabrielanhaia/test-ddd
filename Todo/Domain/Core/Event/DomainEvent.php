@@ -1,10 +1,10 @@
 <?php
 
-namespace Docler\Domain\Core\Event;
+namespace DDD\Domain\Core\Event;
 
 /**
  * Class DomainEvent
- * @package Docler\Domain\Core\Event
+ * @package DDD\Domain\Core\Event
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

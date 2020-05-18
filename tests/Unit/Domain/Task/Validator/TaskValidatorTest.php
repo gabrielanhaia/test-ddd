@@ -3,7 +3,7 @@
 
 namespace Tests\Unit\Domain\Task\Validator;
 
-use Docler\Domain\{
+use DDD\Domain\{
     Core\Exception\ValidatorException,
     Task\Entity\Task as TaskEntity,
     Task\Entity\TaskIdentity,

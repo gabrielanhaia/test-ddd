@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Docler\Domain\Core\Event;
+namespace DDD\Domain\Core\Event;
 
-use Docler\Domain\Core\Exception\EventException;
-use Docler\Domain\Task\Event\TaskCompleted;
+use DDD\Domain\Core\Exception\EventException;
+use DDD\Domain\Task\Event\TaskCompleted;
 
 /**
  * Class EventManager
- * @package Docler\Domain\Core\Event
+ * @package DDD\Domain\Core\Event
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
@@ -25,9 +25,14 @@ class EventDispatcher
     /**
      * EventManager constructor.
      */
-    public function __construct()
+    private function __construct()
     {
         $this->listeners = [];
+    }
+
+    public static function createEvent()
+    {
+        // ..
     }
 
     /**

@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Docler\Infrastructure\Task\ServiceProvider\Laravel;
+namespace DDD\Infrastructure\Task\ServiceProvider\Laravel;
 
-use Docler\Application\Task\Service\{
+use DDD\Application\Task\Service\{
     CompleteTaskService,
     CreateTaskService,
     DeleteTaskService,

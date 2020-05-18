@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Docler\Domain\Core\Entity;
+namespace DDD\Domain\Core\Entity;
 
 /**
  * Interface IUser
- * @package Docler\Domain\Core\Entity
+ * @package DDD\Domain\Core\Entity
  */
 interface IUser
 {

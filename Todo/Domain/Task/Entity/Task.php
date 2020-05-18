@@ -1,12 +1,12 @@
 <?php
 
-namespace Docler\Domain\Task\Entity;
+namespace DDD\Domain\Task\Entity;
 
-use Docler\Domain\Core\Entity\IPrintable;
+use DDD\Domain\Core\Entity\IPrintable;
 
 /**
  * Class Task
- * @package Docler\Domain\Task
+ * @package DDD\Domain\Task
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */

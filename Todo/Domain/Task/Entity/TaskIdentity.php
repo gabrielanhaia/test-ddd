@@ -1,15 +1,15 @@
 <?php
 
 
-namespace Docler\Domain\Task\Entity;
+namespace DDD\Domain\Task\Entity;
 
 use App\Domain\Task\TaskId;
-use Docler\Domain\Core\Entity\Comparable;
-use Docler\Domain\Core\Entity\IPrintable;
+use DDD\Domain\Core\Entity\Comparable;
+use DDD\Domain\Core\Entity\IPrintable;
 
 /**
  * Class TaskIdentity
- * @package Docler\Domain\Task\Entity
+ * @package DDD\Domain\Task\Entity
  *
  * @author Gabriel Annhaia <anhaoa.gabriel@gmail.com>
  */

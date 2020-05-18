@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Docler\Domain\Task\Contract\Repository;
+namespace DDD\Domain\Task\Contract\Repository;
 
-use Docler\Domain\{Task\Contract\Factory\ITaskFactory, Task\Entity\Task as TaskEntity, Task\Entity\TaskIdentity};
+use DDD\Domain\{Task\Contract\Factory\ITaskFactory, Task\Entity\Task as TaskEntity, Task\Entity\TaskIdentity};
 
 /**
  * Class ITaskRepository
- * @package Docler\Domain\Task\Contract\Repository
+ * @package DDD\Domain\Task\Contract\Repository
  *
  * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
